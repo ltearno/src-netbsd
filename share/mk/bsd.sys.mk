@@ -122,7 +122,7 @@ CWARNFLAGS+=	${CWARNFLAGS.${ACTIVE_CC}}
 
 CPPFLAGS+=	${AUDIT:D-D__AUDIT__}
 _NOWERROR=	${defined(NOGCCERROR) || (${ACTIVE_CC} == "clang" && defined(NOCLANGERROR)):?yes:no}
-CFLAGS+=	${${_NOWERROR} == "no" :?-Werror:} ${CWARNFLAGS}
+CFLAGS+=	${${_NOWERROR} == "no" :?-Werror -Wno-error=shift-negative-value:} ${CWARNFLAGS}
 LINTFLAGS+=	${DESTDIR:D-d ${DESTDIR}/usr/include}
 
 .if !defined(NOSSP) && (${USE_SSP:Uno} != "no") && (${BINDIR:Ux} != "/usr/mdec")

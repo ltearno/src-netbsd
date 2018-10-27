@@ -1990,10 +1990,10 @@ Other variables of note (incomplete list):
 
 NOGCCERROR	If defined, prevents passing certain ${CFLAGS} to GCC
 		that cause warnings to be fatal, such as:
-			-Werror -Wa,--fatal-warnings
+			-Werror -Wno-error=shift-negative-value -Wa,--fatal-warnings
 		(The latter being for as(1).)
 
-NOCLANGERROR	If defined and clang is used as C compiler, -Werror is not
+NOCLANGERROR	If defined and clang is used as C compiler, -Werror -Wno-error=shift-negative-value is not
 		passed to it.
 
 WARNS		Crank up compiler warning options; the distinct levels are:

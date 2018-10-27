@@ -99,9 +99,9 @@ AC_DEFUN(AC_LBL_C_INIT,
     AC_BEFORE([$0], [AC_LBL_SHLIBS_INIT])
     if test "$GCC" = yes ; then
 	    #
-	    # -Werror forces warnings to be errors.
+	    # -Werror -Wno-error=shift-negative-value forces warnings to be errors.
 	    #
-	    ac_lbl_cc_force_warning_errors=-Werror
+	    ac_lbl_cc_force_warning_errors=-Werror -Wno-error=shift-negative-value
 
 	    #
 	    # Use -ffloat-store so that, on 32-bit x86, we don't
@@ -119,9 +119,9 @@ AC_DEFUN(AC_LBL_C_INIT,
 	    darwin*)
 		    #
 		    # This is assumed either to be GCC or clang, both
-		    # of which use -Werror to force warnings to be errors.
+		    # of which use -Werror -Wno-error=shift-negative-value to force warnings to be errors.
 		    #
-		    ac_lbl_cc_force_warning_errors=-Werror
+		    ac_lbl_cc_force_warning_errors=-Werror -Wno-error=shift-negative-value
 		    ;;
 
 	    hpux*)
@@ -323,7 +323,7 @@ AC_DEFUN(AC_LBL_CHECK_DEPENDENCY_GENERATION_OPT,
 	#
 	# Note: clang doesn't seem to exit with an error status when handed
 	# an unknown non-warning error, even if you pass it
-	# -Werror=unknown-warning-option.  However, it always supports
+	# -Werror -Wno-error=shift-negative-value=unknown-warning-option.  However, it always supports
 	# -M, so the fact that this test always succeeds with clang
 	# isn't an issue.
 	#

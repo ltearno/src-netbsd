@@ -62,7 +62,7 @@
  * but this breaks Y2K in some locales. Also the old standard logfile
  * format "%d.%m.%y %H:%M:%S" is non compliant.
  * NetBSD's current toolset warns about this problems, and we compile
- * with -Werror, so this problems need to be resolved.
+ * with -Werror -Wno-error=shift-negative-value, so this problems need to be resolved.
  *---------------------------------------------------------------------------*/
 #define I4B_TIME_FORMAT	"%d.%m.%Y %H:%M:%S"
 

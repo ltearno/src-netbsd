@@ -140,7 +140,7 @@ L_CFLAGS += -DCONFIG_ELOOP_EPOLL
 endif
 
 ifdef CONFIG_EAPOL_TEST
-L_CFLAGS += -Werror -DEAPOL_TEST
+L_CFLAGS += -Werror -Wno-error=shift-negative-value -DEAPOL_TEST
 endif
 
 ifdef CONFIG_HT_OVERRIDES
